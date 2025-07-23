@@ -1,0 +1,112 @@
+/* icon style */
+
+
+@keyframes rotate {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.rotate-icon {
+  display: inline-block;
+  animation: rotate 2s linear infinite;
+}
+
+
+
+
+/* footer section */
+.footer-clickable {
+  transition: transform 0.2s ease, background-color 0.2s ease, box-shadow 0.2s ease;
+  cursor: pointer;
+  border-radius: 8px;
+  padding: 6px 8px;
+}
+
+/* QUICK LINKS text change */
+.footer-link:hover,
+.footer-link:focus {
+  color: green !important;
+  background-color: #eaf7ea;
+  box-shadow: 0 4px 12px rgba(0, 128, 0, 0.15);
+  transform: scale(1.03);
+}
+
+.footer-link:active {
+  color: green !important;
+  background-color: #d0f0d0;
+  transform: scale(0.97);
+}
+
+/* SERVICES icon colour change */
+.footer-service:hover,
+.footer-service:focus {
+  background-color: #eaf7ea;
+  box-shadow: 0 4px 12px rgba(0, 128, 0, 0.15);
+  transform: scale(1.03);
+}
+
+.footer-service:active {
+  background-color: #d0f0d0;
+  transform: scale(0.97);
+}
+
+.footer-service:hover .footer-icon,
+.footer-service:focus .footer-icon,
+.footer-service:active .footer-icon {
+  color: green;
+}
+
+
+/* contact style */
+
+.footer-clickable {
+  transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+  cursor: pointer;
+  border-radius: 10px;
+}
+
+
+.footer-clickable:hover {
+  transform: scale(1.03);
+  box-shadow: 0 8px 20px rgba(255, 255, 255, 0.6), 0 6px 10px rgba(0, 128, 0, 0.1);
+  background-color: #f8fff8;
+}
+
+/* Click (active)*/
+.footer-clickable:active {
+  transform: scale(0.97);
+  box-shadow: 0 4px 10px rgba(255, 255, 255, 0.4), 0 3px 6px rgba(0, 128, 0, 0.15);
+  background-color: #ecfcec;
+}
+
+/* Transition  */
+.footer-clickable div {
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+
+/* Responsive section spacing */
+@media (max-width: 767px) {
+  .footer-section {
+    margin-bottom: 2rem;
+  }
+}
+
+
+
+.spin {
+  animation: spin 1.2s linear infinite;
+}
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
