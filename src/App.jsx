@@ -4,6 +4,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Home from './Pages/Home';
 import Footer from './Components/Footer'
 import EduTechPage from './Pages/EduTechPage';
+import ZenmerakiCertificate from './Pages/ZenmerakiCertificate';
 
 
 function App() {
@@ -18,6 +19,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Home/>} />
           <Route path='/eduTechPage' element={<EduTechPage/>}/>
+          <Route path='/ZenmerakiCertificate' element={<ZenmerakiCertificate/>}/>
         </Routes>
       </BrowserRouter>
       

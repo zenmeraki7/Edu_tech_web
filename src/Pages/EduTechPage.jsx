@@ -7,7 +7,7 @@ import { FaArrowRight } from 'react-icons/fa';
 function EduTechPage() {
     return (
         <div>
-            eduimg
+
             {/* navbar */}
             <NavbarComponents />
 
