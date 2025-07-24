@@ -110,3 +110,22 @@
     transform: rotate(360deg);
   }
 }
+
+
+
+/* style hover for edutechpage */
+.shadow-step {
+  box-shadow: 0 0 20px rgba(0, 255, 170, 0.15);
+  border-radius: 12px;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.hover-step:hover {
+  box-shadow: 0 0 30px rgba(119, 134, 129, 0.4);
+  transform: scale(1.02);
+}
+
+.hover-step:active {
+  transform: scale(0.98);
+}
