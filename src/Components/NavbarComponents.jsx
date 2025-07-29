@@ -1,52 +1,135 @@
 import React from 'react';
-import Navbar from 'react-bootstrap/Navbar';
-import Nav from 'react-bootstrap/Nav';
-import NavDropdown from 'react-bootstrap/NavDropdown';
-import Button from 'react-bootstrap/Button';
-import 'bootstrap/dist/css/bootstrap.min.css';
+import AppBar from '@mui/material/AppBar';
+import Box from '@mui/material/Box';
+import Toolbar from '@mui/material/Toolbar';
+import Typography from '@mui/material/Typography';
+import Button from '@mui/material/Button';
+import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
+import MenuItem from '@mui/material/MenuItem';
 import zenlogo from "../assets/zenlogo.png";
+import { Paper, Stack } from '@mui/material';
 
 function NavbarComponent() {
   return (
-    <div>
-      <Navbar expand="lg" style={{ backgroundColor: '#EFF9F9' }} className="px-4">
-        <Navbar.Brand href="#home" className="ms-3 d-flex align-items-center">
-          <img src={zenlogo} width="30" height="30" className="d-inline-block align-top" alt="logo" />
-          <strong className="ms-2">ZEN MERAKI</strong>
-        </Navbar.Brand>
-        <Navbar.Toggle aria-controls="basic-navbar-nav" />
-        <Navbar.Collapse id="basic-navbar-nav">
-          <Nav className="mx-auto align-items-center text-center">
-            <Nav.Link href="#home" className="fw-bold fs-5 text-dark">Home</Nav.Link>
-            <NavDropdown title={<span className="fw-bold fs-5">Expertise</span>} id="expertise-dropdown">
-              <NavDropdown.Item href="#design" className="border-top border-bottom border-dark">Shopify App Development</NavDropdown.Item>
-              <NavDropdown.Item href="#development">Custom Shopify App Development</NavDropdown.Item>
-              <NavDropdown.Item href="#custom">Custom App Development</NavDropdown.Item>
-              <NavDropdown.Item href="#website">Website Development</NavDropdown.Item>
-              <NavDropdown.Item href="#digital">Digital Marketing</NavDropdown.Item>
-              <NavDropdown.Item href="#ecom">E-Commerce Account Management</NavDropdown.Item>
-            </NavDropdown>
-            <Nav.Link href="#about" className="fw-bold fs-5 text-dark">About Us</Nav.Link>
-            <Nav.Link href="#apps" className="fw-bold fs-5 text-dark">Apps</Nav.Link>
-            <Nav.Link href="#projects" className="fw-bold fs-5 text-dark">Projects</Nav.Link>
-            <Nav.Link href="#careers" className="fw-bold fs-5 text-dark">Careers</Nav.Link>
-          </Nav>
-          <div className="d-flex">
+    <AppBar position="static" elevation={0} sx={{ backgroundColor: '#EFF9F9', px: 4 }}>
+      <Toolbar disableGutters>
+        {/* Logo */}
+        <Box sx={{ display: 'flex', alignItems: 'center', ml: 3 }}>
+          <img src={zenlogo} alt="logo" width="30" height="30" />
+          <Typography variant="h6" component="div" sx={{ ml: 2, fontWeight: 'bold', color: 'black' }}>
+            ZEN MERAKI
+          </Typography>
+        </Box>
+
+        {/* Center Navigation */}
+        <Box
+          sx={{
+            flexGrow: 1,
+            display: { xs: 'none', md: 'flex' },
+            justifyContent: 'center',
+            alignItems: 'center',
+            textAlign: 'center',
+            position: 'relative'
+          }}
+        >
+          <Button href="#home" sx={{ fontWeight: 'bold', fontSize: '1.25rem', color: 'black' }}>
+            Home
+          </Button>
+
+          {/* Dropdown  */}
+          <Box
+            sx={{
+              position: 'relative',
+              mx: 2,
+              '&:focus-within .dropdown-content': {
+                display: 'block'
+              }
+            }}
+          >
+            {/* Expertise */}
             <Button
-              href="#contact"
-              variant="success"
-              className="d-none d-md-flex ms-2 fw-bold px-4"
-              style={{ boxShadow: 'none', backgroundColor: '#198754', borderColor: '#198754' }}
+              endIcon={<ExpandMoreIcon />}
+              sx={{
+                fontWeight: 'bold',
+                fontSize: '1.25rem',
+                color: 'black',
+                textTransform: 'none'
+              }}
             >
-              CONTACT US
+              Expertise
             </Button>
 
+            {/* Dropdown Content */}
+            <Paper
+              className="dropdown-content"
+              elevation={3}
+              sx={{
+                display: 'none',
+                position: 'absolute',
+                top: '100%',
+                left: 0,
+                mt: 1,
+                minWidth: 250,
+                zIndex: 10,
+                backgroundColor: '#fff',
+                border: '1px solid #ccc',
+                p: 1
+              }}
+            >
+              <Stack spacing={1}>
+                <MenuItem sx={{ borderTop: '1px solid black', borderBottom: '1px solid black' }} component="a" href="#design">
+                  Shopify App Development
+                </MenuItem>
+                <Button href="#development" sx={{ justifyContent: 'flex-start', color: 'black' }}>
+                  Custom Shopify App Development
+                </Button>
+                <Button href="#custom" sx={{ justifyContent: 'flex-start', color: 'black' }}>
+                  Custom App Development
+                </Button>
+                <Button href="#website" sx={{ justifyContent: 'flex-start', color: 'black' }}>
+                  Website Development
+                </Button>
+                <Button href="#digital" sx={{ justifyContent: 'flex-start', color: 'black' }}>
+                  Digital Marketing
+                </Button>
+                <Button href="#ecom" sx={{ justifyContent: 'flex-start', color: 'black' }}>
+                  E-Commerce Account Management
+                </Button>
+              </Stack>
+            </Paper>
+          </Box>
 
-          </div>
-        </Navbar.Collapse>
-      </Navbar>
-    </div>
+          <Button href="#about" sx={{ fontWeight: 'bold', fontSize: '1.25rem', color: 'black' }}>
+            About Us
+          </Button>
+          <Button href="#apps" sx={{ fontWeight: 'bold', fontSize: '1.25rem', color: 'black' }}>
+            Apps
+          </Button>
+          <Button href="#projects" sx={{ fontWeight: 'bold', fontSize: '1.25rem', color: 'black' }}>
+            Projects
+          </Button>
+          <Button href="#careers" sx={{ fontWeight: 'bold', fontSize: '1.25rem', color: 'black' }}>
+            Careers
+          </Button>
+        </Box>
+
+        {/* Contact Button */}
+        <Box sx={{ display: { xs: 'none', md: 'flex' }, ml: 2 }}>
+          <Button
+            href="#contact"
+            variant="contained"
+            color="success"
+            sx={{ fontWeight: 'bold', px: 4, boxShadow: 'none' }}
+          >
+            CONTACT US
+          </Button>
+        </Box>
+      </Toolbar>
+    </AppBar>
   );
 }
 
 export default NavbarComponent;
+
+
+

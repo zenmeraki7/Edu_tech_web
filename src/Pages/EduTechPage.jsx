@@ -1,175 +1,242 @@
-import React from 'react'
-import NavbarComponents from '../Components/NavbarComponents'
-import eduimg from '../assets/eduimg.png'
-import { FaCheck } from 'react-icons/fa';
-import { FaArrowRight } from 'react-icons/fa';
+import React from 'react';
+import NavbarComponents from '../Components/NavbarComponents';
+import eduimg from '../assets/eduimg.png';
+import { FaCheck, FaArrowRight } from 'react-icons/fa';
+import {
+    Box,
+    Typography,
+    Container,
+    Grid,
+    Paper,
+    Button,
+} from '@mui/material';
 
 function EduTechPage() {
     return (
-        <div>
-
-            {/* navbar */}
+        <Box>
+            {/* Navbar */}
             <NavbarComponents />
 
-
-            <div className="d-flex justify-content-center align-items-center text-center  bg-light mt-5">
-                <div>
-                    <h1 className="fw-bold display-4 text-success">EduSync Chat Console</h1>
-                    <p className="fs-5 text-muted mt-3">
+            {/* Header */}
+            <Box
+                className="bg-light"
+                sx={{ mt: 5, py: 5, textAlign: 'center' }}
+                display="flex"
+                justifyContent="center"
+                alignItems="center"
+            >
+                <Box>
+                    <Typography variant="h2" className="fw-bold" color="success.main">
+                        EduSync Chat Console
+                    </Typography>
+                    <Typography variant="h6" color="text.secondary" mt={3}>
                         Connect students in real-time with smart communication tools.
-                    </p>
-                </div>
-            </div>
+                    </Typography>
+                </Box>
+            </Box>
 
-            {/* Centered Image  */}
-            <div className="d-flex justify-content-center mt-5">
-                <div
-                    className="shadow p-4 bg-white rounded-4"
-                    style={{ width: '75%', maxWidth: '1000px' }}
-                >
+            {/* Image */}
+            <Box display="flex" justifyContent="center" mt={5}>
+                <Paper elevation={3} sx={{ p: 4, borderRadius: 4, width: '75%', maxWidth: 1000 }}>
                     <img
                         src={eduimg}
                         alt="Conversify Chat"
-                        className="img-fluid rounded-3"
-                        style={{ width: '100%' }}
+                        style={{ width: '100%', borderRadius: '12px' }}
                     />
-                </div>
-            </div>
+                </Paper>
+            </Box>
 
+            {/* How it works */}
+            <Container sx={{ my: 5 }}>
+                <Typography variant="h4" textAlign="center" fontWeight="bold" color="success.main" mb={5}>
+                    How It Works
+                </Typography>
 
-
-            {/* how to work */}
-            <div className="container my-5">
-                <h2 className="text-center fw-bold text-success mb-5">How It Works</h2>
-
-                {/* Step 1 */}
-                <div className="card mb-4 p-3 shadow-step hover-step">
-                    <div className="d-flex align-items-start gap-3">
-                        <div
-                            className="rounded-circle d-flex align-items-center justify-content-center"
-                            style={{
-                                width: '40px',
-                                height: '40px',
+                <Paper elevation={2} className="hover-step" sx={{ p: 3, mb: 4, borderRadius: 3 }}>
+                    <Box display="flex" alignItems="start" gap={3}>
+                        <Box
+                            sx={{
+                                width: 40,
+                                height: 40,
                                 backgroundColor: '#0d6efd',
                                 color: 'white',
+                                display: 'flex',
+                                justifyContent: 'center',
+                                alignItems: 'center',
+                                borderRadius: '50%',
                                 flexShrink: 0,
                             }}
                         >
                             <FaCheck size={18} />
-                        </div>
-                        <div>
-                            <h5 className="fw-semibold">1. Simple Student Access</h5>
-                            <p className="mb-0">Students can sign up or log in quickly using email, phone, or third-party platforms — no hassle, just learning.</p>
-                        </div>
-                    </div>
-                </div>
+                        </Box>
+                        <Box>
+                            <Typography variant="h6" fontWeight={600}>
+                                1. Simple Student Access
+                            </Typography>
+                            <Typography>
+                                Students can sign up or log in quickly using email, phone, or third-party platforms — no hassle, just learning.
+                            </Typography>
+                        </Box>
+                    </Box>
+                </Paper>
 
-                {/* Step 2 */}
-                <div className="card mb-4 p-3 shadow-step hover-step">
-                    <div className="d-flex align-items-start gap-3">
-                        <div
-                            className="rounded-circle d-flex align-items-center justify-content-center"
-                            style={{
-                                width: '40px',
-                                height: '40px',
+                <Paper elevation={2} className="hover-step" sx={{ p: 3, mb: 4, borderRadius: 3 }}>
+                    <Box display="flex" alignItems="start" gap={3}>
+                        <Box
+                            sx={{
+                                width: 40,
+                                height: 40,
                                 backgroundColor: '#198754',
                                 color: 'white',
+                                display: 'flex',
+                                justifyContent: 'center',
+                                alignItems: 'center',
+                                borderRadius: '50%',
                                 flexShrink: 0,
                             }}
                         >
                             <FaCheck size={18} />
-                        </div>
-                        <div>
-                            <h5 className="fw-semibold">2. Personalized Learning Dashboard</h5>
-                            <p className="mb-0">Each student gets a custom dashboard with easy access to lessons, notes, chat rooms, and assignments — all in one place.</p>
-                        </div>
-                    </div>
-                </div>
+                        </Box>
+                        <Box>
+                            <Typography variant="h6" fontWeight={600}>
+                                2. Personalized Learning Dashboard
+                            </Typography>
+                            <Typography>
+                                Each student gets a custom dashboard with easy access to lessons, notes, chat rooms, and assignments — all in one place.
+                            </Typography>
+                        </Box>
+                    </Box>
+                </Paper>
 
-                {/* Step 3 */}
-                <div className="card mb-4 p-3 shadow-step hover-step">
-                    <div className="d-flex align-items-start gap-3">
-                        <div
-                            className="rounded-circle d-flex align-items-center justify-content-center"
-                            style={{
-                                width: '40px',
-                                height: '40px',
+                <Paper elevation={2} className="hover-step" sx={{ p: 3, mb: 4, borderRadius: 3 }}>
+                    <Box display="flex" alignItems="start" gap={3}>
+                        <Box
+                            sx={{
+                                width: 40,
+                                height: 40,
                                 backgroundColor: '#fd7e14',
                                 color: 'white',
+                                display: 'flex',
+                                justifyContent: 'center',
+                                alignItems: 'center',
+                                borderRadius: '50%',
                                 flexShrink: 0,
                             }}
                         >
                             <FaCheck size={18} />
-                        </div>
-                        <div>
-                            <h5 className="fw-semibold">3. Real-Time Collaboration</h5>
-                            <p className="mb-0">Connect instantly with classmates, share ideas, join group discussions, and get updates through smart chat features.</p>
-                        </div>
-                    </div>
-                </div>
+                        </Box>
+                        <Box>
+                            <Typography variant="h6" fontWeight={600}>
+                                3. Real-Time Collaboration
+                            </Typography>
+                            <Typography>
+                                Connect instantly with classmates, share ideas, join group discussions, and get updates through smart chat features.
+                            </Typography>
+                        </Box>
+                    </Box>
+                </Paper>
 
-                {/* Step 4 */}
-                <div className="card mb-4 p-3 shadow-step hover-step">
-                    <div className="d-flex align-items-start gap-3">
-                        <div
-                            className="rounded-circle d-flex align-items-center justify-content-center"
-                            style={{
-                                width: '40px',
-                                height: '40px',
+                <Paper elevation={2} className="hover-step" sx={{ p: 3, mb: 4, borderRadius: 3 }}>
+                    <Box display="flex" alignItems="start" gap={3}>
+                        <Box
+                            sx={{
+                                width: 40,
+                                height: 40,
                                 backgroundColor: '#dc3545',
                                 color: 'white',
+                                display: 'flex',
+                                justifyContent: 'center',
+                                alignItems: 'center',
+                                borderRadius: '50%',
                                 flexShrink: 0,
                             }}
                         >
                             <FaCheck size={18} />
-                        </div>
-                        <div>
-                            <h5 className="fw-semibold">4.  Instant Progress Tracking</h5>
-                            <p className="mb-0">Stay on top of your goals with real-time activity stats, reminders, and alerts — helping you learn, grow, and succeed.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
+                        </Box>
+                        <Box>
+                            <Typography variant="h6" fontWeight={600}>
+                                4. Instant Progress Tracking
+                            </Typography>
+                            <Typography>
+                                Stay on top of your goals with real-time activity stats, reminders, and alerts — helping you learn, grow, and succeed.
+                            </Typography>
+                        </Box>
+                    </Box>
+                </Paper>
+            </Container>
 
             {/* Tutorial */}
-
-            <div
-                style={{
-                    height: '500px',
-                    backgroundColor: '#EFF9F9',
-                    marginTop: "30px"
-                }}
-                className="d-flex justify-content-center align-items-center"
+            <Box
+                height={500}
+                sx={{ backgroundColor: '#EFF9F9', mt: 4 }}
+                display="flex"
+                justifyContent="center"
+                alignItems="center"
             >
-                <iframe width="800" height="350" src="https://www.youtube.com/embed/014uZYpNdMY?si=f9g__CkxH8KlqBO8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-            </div>
+                <iframe
+                    width="800"
+                    height="350"
+                    src="https://www.youtube.com/embed/014uZYpNdMY?si=f9g__CkxH8KlqBO8"
+                    title="YouTube video player"
+                    frameBorder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    referrerPolicy="strict-origin-when-cross-origin"
+                    allowFullScreen
+                ></iframe>
+            </Box>
 
-
-            {/* next Section */}
-            <div className="w-100 d-flex align-items-center justify-content-center mt-5" style={{ backgroundColor: '#198754', minHeight: '500px' }}>
-                <div className="container py-4 px-3 text-white" style={{ background: 'linear-gradient(to right, #198754, #4ade80)', borderRadius: '12px', boxShadow: '0 8px 16px rgba(0, 0, 0, 0.2)' }}>
-                    <h6 className="text-center mb-4">PARTNER WITH EXPERTS</h6>
-                    <div className="row g-4">
-                        <div className="col-12 col-md-6">
-                            <h3 className="fs-2">Ready to Boost Your Skills with Smart Learning?</h3>
-                            <p className="mt-3 fs-5">
+            {/* CTA Section */}
+            <Box
+                sx={{ backgroundColor: '#198754', mt: 5, py: 5 }}
+                display="flex"
+                justifyContent="center"
+                alignItems="center"
+            >
+                <Container
+                    sx={{
+                        background: 'linear-gradient(to right, #198754, #4ade80)',
+                        borderRadius: '12px',
+                        boxShadow: '0 8px 16px rgba(0, 0, 0, 0.2)',
+                        color: 'white',
+                        py: 4,
+                        px: 3,
+                    }}
+                >
+                    <Typography variant="h6" textAlign="center" mb={4}>
+                        PARTNER WITH EXPERTS
+                    </Typography>
+                    <Grid container spacing={4}>
+                        <Grid item xs={12} md={6}>
+                            <Typography variant="h4">
+                                Ready to Boost Your Skills with Smart Learning?
+                            </Typography>
+                            <Typography mt={3} fontSize={18}>
                                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto, odio pariatur cupiditate sunt dolore deleniti a totam aliquid amet quibusdam minus ipsum iste tempore inventore sit voluptate temporibus voluptatum iusto?
-                            </p>
-                        </div>
-                        <div className="col-12 col-md-6 d-flex justify-content-center align-items-start">
-                            <button className="btn btn-light text-success fw-semibold px-4 py-3 rounded-pill shadow" style={{ marginTop: '30px' }}>
-                                Get Started Today <FaArrowRight className="ms-2" />
-                            </button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-
-
-        </div>
-    )
+                            </Typography>
+                        </Grid>
+                        <Grid item xs={12} md={6} display="flex" justifyContent="center" alignItems="start">
+                            <Button
+                                variant="contained"
+                                sx={{
+                                    mt: 3,
+                                    backgroundColor: 'white',
+                                    color: '#198754',
+                                    fontWeight: '600',
+                                    px: 4,
+                                    py: 1.5,
+                                    borderRadius: '999px',
+                                    boxShadow: 3,
+                                    textTransform: 'none'
+                                }}
+                            >
+                                Get Started Today <FaArrowRight style={{ marginLeft: '8px' }} />
+                            </Button>
+                        </Grid>
+                    </Grid>
+                </Container>
+            </Box>
+        </Box>
+    );
 }
 
-export default EduTechPage
+export default EduTechPage;

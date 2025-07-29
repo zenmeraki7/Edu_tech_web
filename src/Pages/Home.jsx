@@ -1,118 +1,200 @@
 import React from 'react';
-import Button from 'react-bootstrap/Button';
-import Card from 'react-bootstrap/Card';
-import Container from 'react-bootstrap/Container';
-import 'bootstrap/dist/css/bootstrap.min.css';
+import { Box, Button, Card, Container, Grid, Typography } from '@mui/material';
 import { FaBook, FaSpinner, FaArrowRight } from 'react-icons/fa';
-import '../App.css';
 import NavbarComponent from '../Components/NavbarComponents';
+import '../App.css';
 
 function Home() {
     return (
-        <div style={{ backgroundColor: '#ecfdf5' }}>
+        <Box sx={{ backgroundColor: '#ecfdf5' }}>
             {/* Navbar */}
             <NavbarComponent />
+
             {/* Card Section */}
-            <Container className="mt-5">
-                <Card className="p-4 shadow" style={{ backgroundColor: '#ffffff', borderRadius: '16px' }}>
+            <Container sx={{ mt: 5 }}>
+                <Card sx={{ p: 4, borderRadius: '16px', backgroundColor: '#ffffff', boxShadow: 3 }}>
                     {/* Edu Tech Icon Button */}
-                    <div className="d-flex align-items-center mb-3">
+                    <Box display="flex" alignItems="center" mb={3}>
                         <Button
-                            variant="light"
-                            size="sm"
-                            className="d-flex justify-content-center align-items-center me-2"
-                            style={{
+                            size="small"
+                            sx={{
                                 width: '40px',
                                 height: '40px',
                                 backgroundColor: '#198754',
-                                color: '#fff'
+                                color: '#fff',
+                                minWidth: 0,
+                                mr: 2,
+                                '&:hover': { backgroundColor: '#157347' },
                             }}
-
                         >
                             <FaBook className="rotate-icon" />
                         </Button>
-                        <span className="fw-bold fs-5 text-dark">Edu Tech</span>
-                    </div>
-                    <hr />
+                        <Typography variant="h6" fontWeight="bold" color="text.primary">
+                            Edu Tech
+                        </Typography>
+                    </Box>
 
-                    <div className="d-flex flex-wrap justify-content-center gap-4 py-2 text-secondary">
-                        <span>HERO</span>
-                        <span>FEATURES</span>
-                        <span>HOW IT WORKS</span>
-                        <span>FAQ</span>
-                    </div>
+                    <Box borderBottom={1} borderColor="divider" mb={3} />
 
-                    <h1 className="fw-bold mt-4 display-5 text-center text-md-start text-dark">
-                        With EduTech, Studying Just Got Smarter
-                    </h1>
-                    <p className="mt-3 text-secondary fs-5">
-                        Empower your academic journey with EduTech, the AI platform that adapts to you.
-                        Learn, revise, and succeed—faster than ever before. Education meets intelligence, only at EduTech.
-                    </p>
-                    <button
-                        className="btn btn-success d-flex align-items-center gap-2 fw-semibold px-3 py-2 rounded-3 text-nowrap"
-                        style={{ width: '160px' }}
+                    {/* Sections List */}
+                    <Box
+                        display="flex"
+                        flexWrap="wrap"
+                        justifyContent="center"
+                        gap={4}
+                        py={2}
+                        color="text.secondary"
                     >
-                        <FaSpinner className="rotate-icon" /> GET THE APP
-                    </button>
+                        <Typography>HERO</Typography>
+                        <Typography>FEATURES</Typography>
+                        <Typography>HOW IT WORKS</Typography>
+                        <Typography>FAQ</Typography>
+                    </Box>
+
+                    <Typography
+                        variant="h3"
+                        fontWeight="bold"
+                        mt={4}
+                        textAlign={{ xs: 'center', md: 'left' }}
+                        color="text.primary"
+                    >
+                        With EduTech, Studying Just Got Smarter
+                    </Typography>
+
+                    <Typography mt={3} color="text.secondary" variant="h6">
+                        Empower your academic journey with EduTech, the AI platform that adapts to you.
+                        Learn, revise, and succeed—faster than ever before. Education meets intelligence,
+                        only at EduTech.
+                    </Typography>
+
+                    <Button
+                        variant="contained"
+                        startIcon={<FaSpinner className="rotate-icon" />}
+                        sx={{
+                            mt: 3,
+                            backgroundColor: '#198754',
+                            fontWeight: 600,
+                            textTransform: 'none',
+                            py: 1.5,
+                            px: 3,
+                            borderRadius: 2,
+                            display: 'inline-flex',
+                            whiteSpace: 'nowrap',
+                            minWidth: '160px',
+                            '&:hover': { backgroundColor: '#157347' },
+                        }}
+                    >
+                        GET THE APP
+                    </Button>
 
 
                     {/* Highlight Section */}
-                    <div
-                        className="mt-5 p-4 rounded-4 text-white"
-                        style={{ backgroundColor: '#198754' }}
+                    <Box
+                        mt={5}
+                        p={4}
+                        borderRadius={4}
+                        sx={{ backgroundColor: '#198754', color: 'white' }}
                     >
-                        <h2 className="mb-2 fs-2">Why Learn the Hard Way? Switch to EduTech Today!</h2>
-                        <p className="fs-5">
-                            Get instant doubt-solving, personalized support, and a smarter path to academic success—all in one platform.
-                        </p>
-                        <button className="btn btn-outline-light mt-3 fw-semibold px-4 py-2 rounded-pill">
+                        <Typography variant="h4" mb={2}>
+                            Why Learn the Hard Way? Switch to EduTech Today!
+                        </Typography>
+                        <Typography variant="h6">
+                            Get instant doubt-solving, personalized support, and a smarter path to academic
+                            success—all in one platform.
+                        </Typography>
+                        <Button
+                            variant="outlined"
+                            sx={{
+                                mt: 3,
+                                borderColor: 'white',
+                                color: 'white',
+                                px: 4,
+                                py: 1,
+                                borderRadius: 5,
+                                fontWeight: 600,
+                                '&:hover': {
+                                    backgroundColor: 'white',
+                                    color: '#198754',
+                                    borderColor: 'white',
+                                },
+                            }}
+                        >
                             WATCH DEMO
-                        </button>
-                    </div>
-
+                        </Button>
+                    </Box>
                 </Card>
             </Container>
 
             {/* Gradient Section */}
-            <div
-                className="w-100 d-flex align-items-center justify-content-center mt-5"
-                style={{
+            <Box
+                sx={{
+                    width: '100%',
+                    mt: 5,
                     backgroundColor: '#198754',
-                    minHeight: '500px',
-                    padding: '50px 0',
+                    py: { xs: 5, md: 8 },
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
                 }}
             >
-                <div
-                    className="container py-4 px-3 text-white"
-                    style={{
+                <Box
+                    sx={{
+                        width: '100%',
+                        maxWidth: '1200px',
+                        px: 3,
+                        py: 4,
                         background: 'linear-gradient(to right, #198754, #4ade80)',
-                        borderRadius: '12px',
+                        borderRadius: 2,
                         boxShadow: '0 8px 16px rgba(0, 0, 0, 0.2)',
+                        color: 'white',
                     }}
                 >
-                    <h6 className="text-center mb-4">PARTNER WITH EXPERTS</h6>
-                    <div className="row g-4">
-                        <div className="col-12 col-md-6">
-                            <h3 className="fs-2">Ready to Learn Smarter with EduTech?</h3>
-                            <p className="mt-3 fs-5">
-                                Let AI simplify your studies with personalized guidance, adaptive learning, and
-                                real-time support built for student success.
-                            </p>
-                        </div>
-                        <div className="col-12 col-md-6 d-flex justify-content-center align-items-start">
-                            <button
-                                className="btn btn-light text-success fw-semibold px-4 py-3 rounded-pill shadow"
-                                style={{ marginTop: '30px' }}
-                            >
-                                Get Started Today <FaArrowRight className="ms-2" />
-                            </button>
-                        </div>
-                    </div>
-                </div>
-            </div>
+                    <Typography textAlign="center" mb={4} variant="subtitle1">
+                        PARTNER WITH EXPERTS
+                    </Typography>
 
-        </div>
+                    <Grid container spacing={4}>
+                        <Grid item xs={12} md={6}>
+                            <Typography variant="h4">
+                                Ready to Learn Smarter with EduTech?
+                            </Typography>
+                            <Typography mt={3} variant="h6">
+                                Let AI simplify your studies with personalized guidance, adaptive learning,
+                                and real-time support built for student success.
+                            </Typography>
+                        </Grid>
+                        <Grid
+                            item
+                            xs={12}
+                            md={6}
+                            display="flex"
+                            justifyContent="center"
+                            alignItems="flex-start"
+                        >
+                            <Button
+                                variant="contained"
+                                sx={{
+                                    mt: { xs: 2, md: 4 },
+                                    backgroundColor: '#fff',
+                                    color: '#198754',
+                                    fontWeight: 600,
+                                    borderRadius: 10,
+                                    px: 4,
+                                    py: 1.5,
+                                    boxShadow: 3,
+                                    textTransform: 'none',
+                                    '&:hover': {
+                                        backgroundColor: '#f1f1f1',
+                                    },
+                                }}
+                            >
+                                Get Started Today <FaArrowRight style={{ marginLeft: '8px' }} />
+                            </Button>
+                        </Grid>
+                    </Grid>
+                </Box>
+            </Box>
+        </Box>
     );
 }
 
