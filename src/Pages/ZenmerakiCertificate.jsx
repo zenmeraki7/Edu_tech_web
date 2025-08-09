@@ -1,265 +1,281 @@
-import React from 'react';
-import { Box, Button, Grid, Typography, TextField, Paper } from '@mui/material';
-import ksumLogo from "../assets/ksumLogo.png";
-import startupIndiaLogo from "../assets/startupIndiaLogo.png";
-import softImg from "../assets/softwareImg.png";
-import NavbarComponent from '../Components/NavbarComponents';
+import React, { useState, useEffect } from "react";
+import { Box, Typography, Chip, Card, CardContent, Avatar } from "@mui/material";
+import EmojiEventsIcon from "@mui/icons-material/EmojiEvents";
+import FlagIcon from "@mui/icons-material/Flag";
+import NavbarComponent from "../Components/NavbarComponents";
 
-function ZenmerkiPage() {
-    return (
-        <>
 
-            {/* nav section */}
-            <NavbarComponent />
-            {/* Hero Section */}
-            <Box
-                component="section"
-                sx={{
-                    background: 'linear-gradient(135deg, #f97316, #f59e0b)',
-                    color: 'white',
-                    textAlign: 'center',
-                    py: { xs: 6, md: 8 },
-                    px: 2,
-                    mt: '40px',
-                }}
-            >
-                <Typography variant="h2" sx={{ fontSize: { xs: '2.4rem', md: '3rem' }, fontWeight: 700 }}>
-                    Zenmerki
-                </Typography>
-                <Typography variant="body1" sx={{ fontSize: '1.1rem', mt: 1 }}>
-                    Recognized by Kerala & India Startup Missions
-                </Typography>
-                <Button
-                    variant="outlined"
-                    sx={{
-                        mt: 3,
-                        px: 3,
-                        py: 1.2,
-                        border: '2px solid white',
-                        borderRadius: '25px',
-                        color: 'white',
-                        background: 'transparent',
-                        fontWeight: 'bold',
-                        textTransform: 'none',
-                        '&:hover': {
-                            background: 'rgba(255,255,255,0.08)',
-                            border: '2px solid white',
-                        },
-                    }}
-                >
-                    Explore Our Journey
-                </Button>
-            </Box>
+function Typewriter({ text, speed = 100 }) {
+    const [displayedText, setDisplayedText] = useState("");
 
-            {/* Recognitions Section */}
-            <Box
-                component="section"
-                id="credentials"
-                sx={{
-                    py: { xs: 8, md: 10 },
-                    px: 2,
-                    background: 'linear-gradient(135deg, #0f766e, #134e4a)',
-                    color: 'white',
-                }}
-            >
-                <Box textAlign="center" mb={6}>
-                    <Typography variant="h3" sx={{ fontSize: { xs: '2.2rem', md: '3rem' }, fontWeight: 700 }}>
-                        Recognitions & Credentials
-                    </Typography>
-                    <Typography variant="body1" sx={{ fontSize: '1.2rem', mt: 1 }}>
-                        Government certified startup acknowledged for innovation & excellence
-                    </Typography>
-                </Box>
+    useEffect(() => {
+        let currentIndex = 0;
+        let timeoutId;
 
-                <Grid
-                    container
-                    justifyContent="center"
-                    spacing={4}
-                    sx={{
-                        maxWidth: 1200,
-                        mx: 'auto',
-                        px: 1,
-                    }}
-                >
-                    {/* KSUM Card */}
-                    <Grid item xs={12} sm={6} md={5} lg={4} display="flex" justifyContent="center">
-                        <Paper
-                            elevation={4}
-                            sx={{
-                                backgroundColor: '#ffffff',
-                                borderRadius: '12px',
-                                boxShadow: '0 4px 12px rgba(0,0,0,0.1)',
-                                padding: '2rem',
-                                width: 340,
-                                textAlign: 'center',
-                                transition: 'transform 0.4s ease, box-shadow 0.4s ease, background-color 0.3s ease, border-color 0.3s ease',
-                                border: '2px solid transparent',
-                                '&:hover': {
-                                    transform: 'scale(1.06)',
-                                    boxShadow: '0 12px 25px rgba(16,185,129,0.3)',
-                                    borderColor: '#10b981',
-                                    backgroundColor: '#f0fdf4',
-                                },
-                            }}
-                        >
-                            <Box component="img" src={ksumLogo} alt="KSUM" sx={{ width: 80, mb: 2 }} />
-                            <Typography variant="h6" sx={{ fontSize: '1.5rem', fontWeight: 700, mb: 1, color: '#111827' }}>
-                                Kerala Startup Mission
-                            </Typography>
-                            <Typography variant="body2" sx={{ color: '#374151', mb: 2 }}>
-                                Officially certified for technology innovation by the Kerala government.
-                            </Typography>
-                            <Button
-                                variant="contained"
-                                sx={{
-                                    backgroundColor: '#10b981',
-                                    fontWeight: 700,
-                                    textTransform: 'none',
-                                    '&:hover': { backgroundColor: '#059c6d' },
-                                }}
-                            >
-                                View Certificate
-                            </Button>
-                        </Paper>
-                    </Grid>
+        const typeNextChar = () => {
+            if (currentIndex <= text.length) {
+                setDisplayedText(text.slice(0, currentIndex));
+                currentIndex++;
+                timeoutId = setTimeout(typeNextChar, speed);
+            }
+        };
 
-                    {/* Startup India Card */}
-                    <Grid item xs={12} sm={6} md={5} lg={4} display="flex" justifyContent="center">
-                        <Paper
-                            elevation={4}
-                            sx={{
-                                backgroundColor: '#ffffff',
-                                borderRadius: '12px',
-                                boxShadow: '0 4px 12px rgba(0,0,0,0.1)',
-                                padding: '2rem',
-                                width: 340,
-                                textAlign: 'center',
-                                transition: 'transform 0.4s ease, box-shadow 0.4s ease, background-color 0.3s ease, border-color 0.3s ease',
-                                border: '2px solid transparent',
-                                '&:hover': {
-                                    transform: 'scale(1.06)',
-                                    boxShadow: '0 12px 25px rgba(16,185,129,0.3)',
-                                    borderColor: '#10b981',
-                                    backgroundColor: '#f0fdf4',
-                                },
-                            }}
-                        >
-                            <Box component="img" src={startupIndiaLogo} alt="Startup India" sx={{ width: 80, mb: 2 }} />
-                            <Typography variant="h6" sx={{ fontSize: '1.5rem', fontWeight: 700, mb: 1, color: '#111827' }}>
-                                Startup India Recognition
-                            </Typography>
-                            <Typography variant="body2" sx={{ color: '#374151', mb: 2 }}>
-                                Proud recipient of Startup India recognition under national innovation program.
-                            </Typography>
-                            <Button
-                                variant="contained"
-                                sx={{
-                                    backgroundColor: '#2563eb',
-                                    fontWeight: 700,
-                                    textTransform: 'none',
-                                    '&:hover': { backgroundColor: '#1e4fc7' },
-                                }}
-                            >
-                                View Certificate
-                            </Button>
-                        </Paper>
-                    </Grid>
-                </Grid>
-            </Box>
+        setDisplayedText("");
+        typeNextChar();
 
-            {/* About Section */}
-            <Box
-                component="section"
-                id="about"
-                sx={{
-                    background: '#f9fafb',
-                    py: { xs: 8, md: 10 },
-                    px: 2,
-                }}
-            >
-                <Box
-                    sx={{
-                        maxWidth: 1200,
-                        mx: 'auto',
-                        display: 'flex',
-                        flexWrap: 'wrap',
-                        alignItems: 'center',
-                        gap: 6,
-                        justifyContent: 'space-between',
-                    }}
-                >
-                    <Box sx={{ flex: '1 1 500px', p: 2, minWidth: 280 }}>
-                        <Typography variant="h4" sx={{ fontSize: { xs: '2rem', md: '2.5rem' }, fontWeight: 700, color: '#111827' }}>
-                            About Zenmerki
-                        </Typography>
-                        <Typography
-                            variant="body1"
-                            sx={{
-                                fontSize: '1.2rem',
-                                lineHeight: 2,
-                                color: '#374151',
-                                mt: 2,
-                            }}
-                        >
-                            Zenmerki is a certified startup recognized by both the Kerala Startup Mission and Startup India.
-                            As a growing software company, we deliver innovative solutions backed by credibility and government support.
-                            Our mission is to empower businesses with smart, scalable, and user-friendly technologies that drive real results.
-                        </Typography>
-                    </Box>
+        return () => clearTimeout(timeoutId);
+    }, [text, speed]);
 
-                    <Box sx={{ flex: '1 1 500px', minWidth: 280 }}>
-                        <Box
-                            component="img"
-                            src={softImg}
-                            alt="Zenmerki Software Team"
-                            sx={{
-                                width: '100%',
-                                maxHeight: 400,
-                                objectFit: 'cover',
-                                borderRadius: '20px',
-                                boxShadow: '0 12px 30px rgba(0, 0, 0, 0.2)',
-                            }}
-                        />
-                    </Box>
-                </Box>
-            </Box>
-
-            {/* Contact Section */}
-            <Box
-                component="section"
-                id="contact"
-                sx={{
-                    py: { xs: 6, md: 8 },
-                    px: 2,
-                    textAlign: 'center',
-                    background: 'linear-gradient(135deg, #f97316, #f59e0b)',
-                    color: 'white',
-                }}
-            >
-                <Typography variant="h4" sx={{ fontWeight: 700, mb: 2 }}>
-                    Contact Us
-                </Typography>
-                <Box
-                    component="form"
-                    sx={{
-                        maxWidth: 500,
-                        mx: 'auto',
-                        mt: 2,
-                        display: 'grid',
-                        gap: 2,
-                        backgroundColor: 'white',
-                        p: 3,
-                        borderRadius: 2,
-                        boxShadow: '0 8px 20px rgba(0,0,0,0.15)',
-                    }}
-                >
-                    <TextField placeholder="Name" variant="outlined" fullWidth InputProps={{ sx: { borderRadius: '8px' } }} />
-                    <TextField placeholder="Email" variant="outlined" type="email" fullWidth InputProps={{ sx: { borderRadius: '8px' } }} />
-                    <TextField placeholder="Message" variant="outlined" fullWidth multiline minRows={4} InputProps={{ sx: { borderRadius: '8px' } }} />
-                </Box>
-            </Box>
-        </>
-    );
+    return <>{displayedText}</>;
 }
 
-export default ZenmerkiPage;
+export default function TrustedCertifiedSection() {
+    const cards = [
+        {
+            icon: <EmojiEventsIcon sx={{ color: "#F59E0B" }} />,
+            avatarBg: "#FFF4E5",
+            title: "Kerala Startup Mission",
+            chipLabel: "Certified Startup",
+            chipBg: "#E9F8EC",
+            chipColor: "#2E7D32",
+            description:
+                "Officially recognized and supported by the Government of Kerala's premier startup ecosystem, Kerala Startup Mission (KSUM). " +
+                "As a certified startup, we gain access to exclusive government-backed resources, mentorship programs, innovation grants, and " +
+                "networking opportunities that accelerate our growth. This recognition reflects our commitment to innovation, quality, and " +
+                "delivering impactful solutions aligned with Kerala’s vision for a thriving entrepreneurial community.",
+            bg: "linear-gradient(135deg, #ffffff 0%, #f0f8ff 100%)",
+        },
+        {
+            icon: <FlagIcon sx={{ color: "#F97316" }} />,
+            avatarBg: "#FFF7ED",
+            title: "Startup India",
+            chipLabel: "DPIIT Recognized",
+            chipBg: "#FFF7ED",
+            chipColor: "#EA580C",
+            description:
+                "Officially recognized by the Department for Promotion of Industry and Internal Trade (DPIIT), Government of India, under the Startup India initiative. " +
+                "This recognition validates our innovation-driven approach, opens access to exclusive government benefits, tax exemptions, and funding opportunities, " +
+                "and strengthens our credibility in the startup ecosystem. It reflects our commitment to building impactful solutions that contribute to India’s growth and global competitiveness.",
+            bg: "linear-gradient(135deg, #ffffff 0%, #fff5f0 100%)",
+        },
+    ];
+
+    return (
+        <Box sx={{ position: "relative", overflow: "hidden" }}>
+            {/* Nav section */}
+            <NavbarComponent />
+
+            <Box sx={{ mt: 8 }} />
+
+            <Box
+                sx={{
+                    position: "absolute",
+                    top: "-50px",
+                    left: "-50px",
+                    width: "200px",
+                    height: "200px",
+                    background:
+                        "radial-gradient(circle at center, rgba(0, 102, 255, 0.05) 0%, transparent 70%)",
+                    borderRadius: "50%",
+                }}
+            />
+            <Box
+                sx={{
+                    position: "absolute",
+                    bottom: "-60px",
+                    right: "-60px",
+                    width: "250px",
+                    height: "250px",
+                    background:
+                        "radial-gradient(circle at center, rgba(0, 200, 83, 0.05) 0%, transparent 70%)",
+                    borderRadius: "50%",
+                }}
+            />
+
+            {/* Full-width Banner */}
+            <Box
+                sx={{
+                    background: "#14532d", // Dark Green
+                    py: 6,
+                    px: 3,
+                    color: "white",
+                    textAlign: "center",
+                    position: "relative",
+                    zIndex: 1,
+                }}
+            >
+                <Avatar
+                    sx={{
+                        bgcolor: "#22c55e",
+                        width: 70,
+                        height: 70,
+                        mx: "auto",
+                        mb: 3,
+                        boxShadow: "0 4px 12px rgba(0,0,0,0.3)",
+                        fontSize: "1.5rem",
+                    }}
+                >
+                    ✅
+                </Avatar>
+
+                <Typography
+                    variant="h3"
+                    fontWeight="900"
+                    sx={{
+                        fontFamily: "'Georgia', serif",
+                        px: 3,
+                        py: 1,
+                        borderRadius: 1,
+                        display: "inline-block",
+                        textTransform: "uppercase",
+                        letterSpacing: "0.1em",
+                        fontStyle: "italic",
+                        minHeight: "3.5rem",  // keep vertical space
+                        userSelect: "none",
+                    }}
+                >
+                    <Typewriter text="TRUSTED & CERTIFIED" speed={140} />
+                </Typography>
+
+
+                <Typography
+                    variant="h6"
+                    maxWidth="700px"
+                    mx="auto"
+                    mt={3}
+                    sx={{
+                        fontFamily: "monospace",
+                        backgroundColor: "rgba(255,255,255,0.08)",
+                        px: 3,
+                        py: 1.5,
+                        borderRadius: 1,
+                        lineHeight: 1.6,
+                    }}
+                >
+                    Our startup is officially recognized and certified by leading government
+                    initiatives, ensuring reliability and trustworthiness in everything we do.
+                </Typography>
+
+                {/* Tags */}
+                <Box
+                    display="flex"
+                    justifyContent="center"
+                    gap={2}
+                    mt={4}
+                    flexWrap="wrap"
+                >
+                    {[
+                        { label: "Government Verified", bg: "#E9F8EC", color: "#2E7D32" },
+                        { label: "Officially Recognized", bg: "#E8F0FF", color: "#1E40AF" },
+                        { label: "Startup Ecosystem", bg: "#F3E8FF", color: "#6B21A8" },
+                    ].map((tag, i) => (
+                        <Chip
+                            key={i}
+                            icon={
+                                <span
+                                    style={{
+                                        display: "inline-block",
+                                        width: 10,
+                                        height: 10,
+                                        backgroundColor: tag.color,
+                                        borderRadius: "50%",
+                                    }}
+                                />
+                            }
+                            label={tag.label}
+                            sx={{
+                                bgcolor: tag.bg,
+                                color: tag.color,
+                                pl: 1,
+                                fontWeight: 600,
+                                fontSize: "0.95rem",
+                                boxShadow: "0 2px 6px rgba(0,0,0,0.15)",
+                                "&:hover": {
+                                    transform: "translateY(-3px)",
+                                    boxShadow: "0 4px 12px rgba(0,0,0,0.25)",
+                                },
+                            }}
+                        />
+                    ))}
+                </Box>
+            </Box>
+
+            {/* Cards Section with flex */}
+            <Box
+                sx={{
+                    py: 8,
+                    px: 4,
+                    background: "linear-gradient(135deg, #f9fbff, #eef3ff)",
+                    position: "relative",
+                    zIndex: 1,
+
+                    display: "flex",
+                    justifyContent: "center",
+                    gap: 4,
+                    flexWrap: "nowrap",
+                    flexDirection: { xs: "column", md: "row" },
+                }}
+            >
+                {cards.map((card, index) => (
+                    <Card
+                        key={index}
+                        sx={{
+                            borderRadius: 3,
+                            background: "linear-gradient(135deg, #e6f4ea 0%, #c8e6c9 100%)",
+                            border: "2px solid rgba(34, 197, 94, 0.4)",
+                            backdropFilter: "blur(8px)",
+                            boxShadow: "0 6px 20px rgba(0,0,0,0.05)",
+                            height: "350px",
+                            maxWidth: "500px",
+                            flex: 1,
+                            display: "flex",
+                            flexDirection: "column",
+                            alignItems: "center",
+                            justifyContent: "center",
+                            transition: "all 0.3s ease",
+                            "&:hover": {
+                                transform: "translateY(-8px)",
+                                boxShadow: "0 12px 30px rgba(0,0,0,0.1)",
+                                borderColor: "rgba(34, 197, 94, 0.6)",
+                            },
+                        }}
+                    >
+                        <CardContent sx={{ textAlign: "center" }}>
+                            <Avatar sx={{ bgcolor: card.avatarBg, mb: 2, mx: "auto" }}>
+                                {card.icon}
+                            </Avatar>
+                            <Typography
+                                variant="h6"
+                                fontWeight="bold"
+                                gutterBottom
+                                sx={{
+                                    fontFamily: "'Courier New', Courier, monospace",
+                                    fontStyle: "italic",
+                                    letterSpacing: 1,
+                                    fontSize: "30px",
+                                }}
+                            >
+                                {card.title}
+                            </Typography>
+
+                            <Chip
+                                label={card.chipLabel}
+                                size="small"
+                                sx={{
+                                    bgcolor: card.chipBg,
+                                    color: card.chipColor,
+                                    mt: 1,
+                                    mb: 2,
+                                    fontWeight: 500,
+                                }}
+                            />
+                            <Typography variant="body2" color="text.secondary" sx={{ fontStyle: "italic" }}>
+                                {card.description}
+                            </Typography>
+                        </CardContent>
+                    </Card>
+                ))}
+            </Box>
+        </Box>
+    );
+}
