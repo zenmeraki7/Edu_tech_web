@@ -114,16 +114,26 @@ function NavbarComponent() {
         </Box>
 
         {/* Contact Button */}
-        <Box sx={{ display: { xs: 'none', md: 'flex' }, ml: 2 }}>
+        <Box sx={{ display: { xs: 'none', md: 'flex' }, backgroundColor: '#16726d', ml: 2 }}>
           <Button
             href="#contact"
             variant="contained"
-            color="success"
-            sx={{ fontWeight: 'bold', px: 4, boxShadow: 'none' }}
+            sx={{
+              fontWeight: 'bold',
+              px: 4,
+              boxShadow: 'none',
+              backgroundColor: '#16726d',
+              '&:hover': {
+                backgroundColor: '#145c58',
+                boxShadow: 'none',
+              },
+            }}
           >
             CONTACT US
           </Button>
         </Box>
+
+
       </Toolbar>
     </AppBar>
   );
